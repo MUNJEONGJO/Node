@@ -16,7 +16,14 @@
 
 
 		socket.on('smart', function(data) {
-			alert(data);
+			//alert(data);
+			var output = '';
+			output += '<li>';
+			output += '<p>' + data + '</p>';
+			output += '</li>';
+			//alert(output);
+
+			$(output).prependTo('#content');
 		});
 
 
@@ -41,6 +48,8 @@
 <input id="name" />
 <input id="message" />
 <button id="button" class="btn" type="button">보내기</button>
+<ul id="content">
+</ul>
 </div>
 </body>
 </html>
