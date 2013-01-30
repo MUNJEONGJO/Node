@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+	window.onload = function () {
+	
+
+		var socket = io.connect();
+
+
+
+		socket.on('smart', function(data) {
+			alert(data);
+		});
+
+
+		document.getElementById('button').onclick = function () {
+
+		var text = document.getElementById('message').value;
+		//alert(text);
+		socket.emit('rint', text);
+		};
+
+
+
+	};
+
+	
+</script>
+</head>
+<body>
+<div class="container" style="padding-left:30px; padding-top:30px;">
+<h1>Socket.io Chat</h1>
+<p class="muted">Chat with your friends.</p>
+<input id="name" />
+<input id="message" />
+<button id="button" class="btn" type="button">보내기</button>
+</div>
+</body>
+</html>
+
+
+
